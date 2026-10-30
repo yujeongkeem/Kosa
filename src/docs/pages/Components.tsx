@@ -158,7 +158,7 @@ export function IconButtonPage() {
 
 /* -------------------------------------------------------------- TextField */
 export function TextFieldPage() {
-  const [name, setName] = useState('고사쿠라');
+  const [name, setName] = useState('홍길동');
   const [email, setEmail] = useState('kosa@');
   const emailError = email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? '이메일 형식을 확인해 주세요' : undefined;
   return (
@@ -425,10 +425,10 @@ export function CardPage() {
                 {v}
               </Badge>
               <p className="kosa-heading2" style={{ margin: '12px 0 4px', color: 'var(--kosa-color-text-strong)' }}>
-                오늘의 케어 기록
+                이번 주 리포트
               </p>
               <p className="kosa-label1" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
-                체중 52g · 컨디션 좋음
+                운동 4회 · 목표 달성률 80%
               </p>
             </Card>
           ))}

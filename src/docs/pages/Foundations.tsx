@@ -8,7 +8,7 @@ type Scale = Record<string, string>;
 const SCALES = palette as unknown as Record<string, Scale>;
 const ANCHORS: Record<string, string> = { sakura: '50', red: '40', green: '50', blue: '40', amber: '70' };
 const SCALE_DESC: Record<string, string> = {
-  sakura: '브랜드 · 고사쿠라 오렌지 (#FF4500 = 50)',
+  sakura: '브랜드 · 오렌지레드 (#FF4500 = 50)',
   neutral: '쿨 뉴트럴 · 아주 약한 블루 틴트의 메탈릭 그레이',
   red: 'Negative · 브랜드와 구분되도록 로즈 방향',
   green: 'Positive',
@@ -67,7 +67,7 @@ export function ColorPage() {
         팔레트(원재료) → 시맨틱(의미) 두 단계로 나뉘어요. 컴포넌트는 시맨틱 토큰만 쓰기 때문에, 다크 모드는 매핑만 바꿔서 만들어요.
       </PageHeader>
 
-      <Section title="Brand" description="고사쿠라(모란앵무)의 얼굴색. 채도는 최대로 유지하고 명도만 단계별로 조정한 OKLCH 스케일이에요.">
+      <Section title="Brand" description="브랜드 컬러 #FF4500. 채도는 최대로 유지하고 명도만 단계별로 조정한 OKLCH 스케일이에요.">
         <div className="doc-hero__sw" style={{ height: 120, borderRadius: 'var(--kosa-radius-card)' }}>
           <span style={{ background: palette.sakura['50'], display: 'flex', alignItems: 'flex-end', padding: 20, color: '#fff', fontWeight: 700 }}>
             #FF4500 · sakura-50
@@ -175,7 +175,7 @@ export function TypographyPage() {
             <div key={name} style={{ display: 'grid', gridTemplateColumns: '110px 1fr', gap: 16, alignItems: 'baseline' }}>
               <InlineCode>{name}</InlineCode>
               <span className={`kosa-${name}`} style={{ color: 'var(--kosa-color-text-strong)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                고사쿠라는 해바라기씨를 좋아해
+                다람쥐 헌 쳇바퀴에 타고파
               </span>
             </div>
           ))}
@@ -457,7 +457,7 @@ export function IconPage() {
         <Preview>
           {[16, 20, 24, 32].map((s) => (
             <div key={s} style={{ textAlign: 'center' }}>
-              <Icon name="feather" size={s} />
+              <Icon name="star" size={s} />
               <p className="kosa-caption1" style={{ margin: '6px 0 0', color: 'var(--kosa-color-text-assistive)' }}>
                 {s}
               </p>

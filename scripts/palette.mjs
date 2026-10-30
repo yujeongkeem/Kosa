@@ -70,7 +70,7 @@ function scale(seedHex, { chroma, anchor, hueShift = 0, taper = true } = {}) {
 }
 
 const palette = {
-  // 브랜드: 고사쿠라 오렌지 #FF4500 (OKLCH L≈0.66) → 50 스텝에 고정
+  // 브랜드: 오렌지레드 #FF4500 (OKLCH L≈0.66) → 50 스텝에 고정
   sakura: scale('#FF4500', { anchor: 50, hueShift: 8, taper: false }),
   // 쿨 뉴트럴: 메탈릭한 차가운 회색 (아주 약한 블루 틴트)
   neutral: scale('#6B7280', { chroma: 0.012 }),

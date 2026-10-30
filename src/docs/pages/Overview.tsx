@@ -10,11 +10,11 @@ export function Overview() {
       <div className="doc-hero">
         <div>
           <h1 className="doc-hero__title">
-            작은 앵무새 한 마리의
+            토큰 하나로
             <br />
-            <em>얼굴색</em>에서 시작한
+            <em>웹과 모바일</em>을
             <br />
-            디자인 시스템
+            함께 다루는 디자인 시스템
           </h1>
           <p className="doc-hero__lead">
             Kosa는 웹과 모바일을 함께 다루는 React 디자인 시스템이에요. 토큰 하나로 라이트·다크, 웹·모바일, 라운드·각진 톤까지 바꿀 수

@@ -108,7 +108,7 @@ export function App() {
               )}
             </div>
           )}
-          <footer className="doc-footer">Kosa Design System · 고사쿠라(모란앵무)의 얼굴색에서 시작한 디자인 시스템</footer>
+          <footer className="doc-footer">Kosa Design System · 테스트용 React 디자인 시스템</footer>
         </main>
       </div>
     </div>

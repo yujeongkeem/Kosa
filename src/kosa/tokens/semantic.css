@@ -6,7 +6,7 @@
 [data-theme='light'] {
   color-scheme: light;
 
-  /* Brand — 고사쿠라 오렌지. 로고·일러스트·큰 그래픽 전용 (텍스트 대비 3.4:1) */
+  /* Brand — 오렌지레드 #FF4500. 로고·일러스트·큰 그래픽 전용 (텍스트 대비 3.4:1) */
   --kosa-color-brand: var(--kosa-sakura-50);
 
   /* Background */

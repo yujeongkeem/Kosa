@@ -31,17 +31,17 @@ interface Log {
   time: string;
 }
 const KINDS: { value: string; label: string; icon: IconName }[] = [
-  { value: 'meal', label: '식사', icon: 'heart' },
-  { value: 'weight', label: '체중', icon: 'feather' },
-  { value: 'play', label: '놀이', icon: 'star' },
-  { value: 'health', label: '건강', icon: 'info' },
+  { value: 'workout', label: '운동', icon: 'heart' },
+  { value: 'meal', label: '식사', icon: 'star' },
+  { value: 'sleep', label: '수면', icon: 'clock' },
+  { value: 'memo', label: '메모', icon: 'info' },
 ];
 
 export function MobilePrototype() {
   return (
     <>
       <PageHeader group="Prototypes" title="모바일 앱">
-        Kosa 컴포넌트만으로 조립한 반려조 케어 기록 앱이에요. 탭 전환, 필터, 기록 추가(BottomSheet), 토스트까지 실제로 동작해요.
+        Kosa 컴포넌트만으로 조립한 데일리 기록 앱이에요. 탭 전환, 필터, 기록 추가(BottomSheet), 토스트까지 실제로 동작해요.
       </PageHeader>
       <div className="proto-stage">
         <div className="doc-device proto-phone" data-platform="mobile">
@@ -71,12 +71,12 @@ function PhoneApp() {
   const [tab, setTab] = useState('today');
   const [filter, setFilter] = useState('all');
   const [sheet, setSheet] = useState(false);
-  const [kind, setKind] = useState('meal');
+  const [kind, setKind] = useState('workout');
   const [memo, setMemo] = useState('');
   const [logs, setLogs] = useState<Log[]>([
-    { id: 3, kind: 'play', text: '거울 앞에서 20분 수다', time: '오후 2:10' },
-    { id: 2, kind: 'weight', text: '52g · 지난주와 같아요', time: '오전 9:30' },
-    { id: 1, kind: 'meal', text: '해바라기씨 5알, 펠렛 조금', time: '오전 8:05' },
+    { id: 3, kind: 'workout', text: '러닝 5km · 32분', time: '오후 7:10' },
+    { id: 2, kind: 'meal', text: '샐러드와 닭가슴살', time: '오후 12:30' },
+    { id: 1, kind: 'sleep', text: '7시간 20분 · 깊은 잠 1시간 40분', time: '오전 7:00' },
   ]);
   const [bottomNav, setBottomNav] = useState('home');
   const visible = filter === 'all' ? logs : logs.filter((l) => l.kind === filter);
@@ -97,10 +97,10 @@ function PhoneApp() {
         <div className="proto-avatar" aria-hidden="true" />
         <div style={{ flex: 1, minWidth: 0 }}>
           <p className="kosa-caption1" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
-            모란앵무 · 2살
+            10월 30일 목요일
           </p>
           <p className="kosa-heading1" style={{ margin: 0, color: 'var(--kosa-color-text-strong)' }}>
-            고사쿠라
+            오늘의 기록
           </p>
         </div>
         <span style={{ position: 'relative', display: 'inline-flex' }}>
@@ -128,13 +128,13 @@ function PhoneApp() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
                   <Badge tone="positive" size="sm">
-                    컨디션 좋음
+                    목표 순항 중
                   </Badge>
                   <p className="kosa-title3" style={{ margin: '10px 0 2px', color: 'var(--kosa-color-text-strong)' }}>
-                    52g
+                    6,240보
                   </p>
                   <p className="kosa-label2" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
-                    적정 체중 범위 (46–55g)
+                    목표 8,000보
                   </p>
                 </div>
                 <div className="proto-ring" aria-label="오늘 목표 75% 달성">
@@ -183,22 +183,22 @@ function PhoneApp() {
         {tab === 'week' && (
           <div style={{ padding: '20px' }}>
             <div className="proto-bars">
-              {[48, 50, 51, 53, 52, 52, 52].map((v, i) => (
+              {[5.2, 8.1, 6.4, 9.3, 7.7, 10.2, 6.2].map((v, i) => (
                 <div key={i} className="proto-bar">
-                  <span style={{ height: `${(v - 44) * 9}px` }} data-today={i === 6 || undefined} />
+                  <span style={{ height: `${v * 12}px` }} data-today={i === 6 || undefined} />
                   <small>{'월화수목금토일'[i]}</small>
                 </div>
               ))}
             </div>
             <p className="kosa-label2" style={{ color: 'var(--kosa-color-text-assistive)', textAlign: 'center' }}>
-              이번 주 체중 변화 (g)
+              이번 주 걸음 수 (천 보)
             </p>
           </div>
         )}
         {tab === 'stats' && (
           <List>
-            <ListItem title="체중 알림" description="급격히 변하면 알려드려요" trailing={<Switch defaultChecked aria-label="체중 알림" />} />
-            <ListItem title="식사 리마인더" description="매일 오전 8시" trailing={<Switch aria-label="식사 리마인더" />} />
+            <ListItem title="목표 달성 알림" description="목표를 채우면 알려드려요" trailing={<Switch defaultChecked aria-label="목표 달성 알림" />} />
+            <ListItem title="기록 리마인더" description="매일 오후 9시" trailing={<Switch aria-label="기록 리마인더" />} />
             <ListItem title="기록 내보내기" meta="CSV" chevron onClick={() => toast('내보내기를 준비했어요')} />
           </List>
         )}
@@ -225,7 +225,7 @@ function PhoneApp() {
         open={sheet}
         onClose={() => setSheet(false)}
         title="기록 추가"
-        description="고사쿠라의 오늘을 남겨요"
+        description="오늘 한 일을 남겨요"
         actions={
           <>
             <Button size="lg" variant="tertiary" onClick={() => setSheet(false)}>
@@ -243,7 +243,7 @@ function PhoneApp() {
           ))}
         </RadioGroup>
         <div style={{ height: 12 }} />
-        <TextField label="메모" placeholder="예: 해바라기씨 5알" value={memo} onChange={(e) => setMemo(e.target.value)} onClear={() => setMemo('')} />
+        <TextField label="메모" placeholder="예: 러닝 5km" value={memo} onChange={(e) => setMemo(e.target.value)} onClear={() => setMemo('')} />
       </BottomSheet>
     </div>
   );
