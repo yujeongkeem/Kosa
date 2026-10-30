@@ -1,10 +1,9 @@
 # Kosa Design System
 
-반려조 **고사쿠라**(모란앵무)의 얼굴색 `#FF4500`에서 시작한 React 디자인 시스템.
+테스트용 React 디자인 시스템.
 웹과 모바일을 함께 다루고, 토큰만 바꿔서 라이트/다크 · 웹/모바일 · 라운드/각진 톤을 전환한다.
 
-Wanted Montage, Toss TDS의 문서 구조(Foundations / Components)를 레퍼런스로 삼았고,
-토큰·컴포넌트·문서는 AI(Claude)와 함께 처음부터 새로 설계했다.
+Wanted Montage, Toss TDS의 문서 구조(Foundations / Components)를 레퍼런스로 삼았고, 토큰·컴포넌트·문서는 AI(Claude)와 함께 처음부터 새로 설계했다.
 
 문서 사이트: https://yujeongkeem.github.io/Kosa/
 
