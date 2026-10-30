@@ -6,6 +6,8 @@
 Wanted Montage, Toss TDS의 문서 구조(Foundations / Components)를 레퍼런스로 삼았고,
 토큰·컴포넌트·문서는 AI(Claude)와 함께 처음부터 새로 설계했다.
 
+문서 사이트: https://yujeongkeem.github.io/Kosa/
+
 ## 실행
 
 ```bash
