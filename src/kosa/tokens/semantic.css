@@ -6,7 +6,7 @@
 [data-theme='light'] {
   color-scheme: light;
 
-  /* Brand — 오렌지레드 #FF4500. 로고·일러스트·큰 그래픽 전용 (텍스트 대비 3.4:1) */
+  /* Brand — 오렌지레드 #FF4500. 채도를 지키기 위해 면·텍스트·포커스 모두 원색 그대로 쓴다 */
   --kosa-color-brand: var(--kosa-sakura-50);
 
   /* Background */
@@ -17,8 +17,8 @@
   --kosa-color-bg-inverse: var(--kosa-neutral-10);
 
   /* Fill — 버튼·칩 등 인터랙티브 면 */
-  --kosa-color-fill-primary: var(--kosa-sakura-45); /* 흰 글자 4.6:1 */
-  --kosa-color-fill-primary-pressed: var(--kosa-sakura-40);
+  --kosa-color-fill-primary: var(--kosa-sakura-50); /* 흰 글자 3.4:1 — 굵은 버튼 라벨 기준 */
+  --kosa-color-fill-primary-pressed: var(--kosa-sakura-45);
   --kosa-color-fill-primary-subtle: var(--kosa-sakura-95);
   --kosa-color-fill-neutral: var(--kosa-neutral-95);
   --kosa-color-fill-neutral-pressed: var(--kosa-neutral-90);
@@ -34,13 +34,13 @@
   --kosa-color-text-disabled: var(--kosa-neutral-70);
   --kosa-color-text-inverse: var(--kosa-common-100);
   --kosa-color-text-on-primary: var(--kosa-common-100);
-  --kosa-color-text-primary: var(--kosa-sakura-45);
+  --kosa-color-text-primary: var(--kosa-sakura-50); /* 강조·링크용. 긴 본문엔 쓰지 않는다 */
 
   /* Line */
   --kosa-color-line-subtle: var(--kosa-neutral-95);
   --kosa-color-line-normal: var(--kosa-neutral-90);
   --kosa-color-line-strong: var(--kosa-neutral-70);
-  --kosa-color-line-focus: var(--kosa-sakura-45);
+  --kosa-color-line-focus: var(--kosa-sakura-50);
 
   /* Status */
   --kosa-color-negative: var(--kosa-red-45);
@@ -71,8 +71,8 @@
   --kosa-color-bg-elevated: #1A1D23;
   --kosa-color-bg-inverse: var(--kosa-neutral-95);
 
-  --kosa-color-fill-primary: var(--kosa-sakura-45);
-  --kosa-color-fill-primary-pressed: var(--kosa-sakura-50);
+  --kosa-color-fill-primary: var(--kosa-sakura-50);
+  --kosa-color-fill-primary-pressed: var(--kosa-sakura-60);
   --kosa-color-fill-primary-subtle: rgb(255 69 0 / 0.14);
   --kosa-color-fill-neutral: var(--kosa-neutral-10);
   --kosa-color-fill-neutral-pressed: var(--kosa-neutral-20);

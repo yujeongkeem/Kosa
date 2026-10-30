@@ -11,7 +11,6 @@
 }
 .kosa-card[data-variant='elevated'] {
   background: var(--kosa-color-bg-elevated);
-  box-shadow: var(--kosa-shadow-2);
 }
 .kosa-card[data-variant='plain'] {
   background: transparent;
@@ -25,8 +24,7 @@
 .kosa-card--interactive {
   cursor: pointer;
   transition:
-    transform var(--kosa-duration-fast) var(--kosa-ease-standard),
-    box-shadow var(--kosa-duration-normal) var(--kosa-ease-standard);
+    transform var(--kosa-duration-fast) var(--kosa-ease-standard);
 }
 .kosa-card--interactive::after {
   content: '';
@@ -39,9 +37,6 @@
 @media (hover: hover) {
   .kosa-card--interactive:hover::after {
     background: var(--kosa-color-state-hover);
-  }
-  .kosa-card--interactive[data-variant='elevated']:hover {
-    box-shadow: var(--kosa-shadow-3);
   }
 }
 .kosa-card--interactive:active {

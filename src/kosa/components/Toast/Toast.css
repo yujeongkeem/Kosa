@@ -23,7 +23,7 @@
   background: rgb(36 39 46 / 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--kosa-shadow-3);
+  box-shadow: var(--kosa-shadow-2);
   color: var(--kosa-common-100);
   font: var(--kosa-type-body2);
   font-weight: var(--kosa-weight-medium);

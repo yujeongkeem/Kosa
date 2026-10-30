@@ -27,11 +27,11 @@ function useCopy() {
 
 /* ------------------------------------------------------------------ Color */
 const SEMANTIC: [string, string][] = [
-  ['brand', '로고·일러스트·큰 그래픽 전용 원색'],
+  ['brand', '브랜드 원색 #FF4500'],
   ['bg-base', '페이지 기본 배경'],
   ['bg-subtle', '섹션 구분 배경'],
   ['bg-muted', '카드·그룹 배경'],
-  ['bg-elevated', '떠 있는 면 (다이얼로그, 시트)'],
+  ['bg-elevated', '회색 배경 위의 흰 면 (카드, 다이얼로그, 시트)'],
   ['fill-primary', '주요 버튼·선택 상태'],
   ['fill-primary-subtle', '보조 버튼, 선택 배경'],
   ['fill-neutral', '입력창·칩·3순위 버튼'],
@@ -51,9 +51,8 @@ const SEMANTIC: [string, string][] = [
 ];
 
 const PAIRS: [string, string, string, string][] = [
-  ['흰 글자 / sakura-50 (원색)', palette.common['100'], palette.sakura['50'], '버튼 배경으로 쓰지 않음'],
-  ['흰 글자 / sakura-45 (fill-primary)', palette.common['100'], palette.sakura['45'], '주요 버튼'],
-  ['sakura-45 / 흰 배경 (text-primary)', palette.sakura['45'], palette.common['100'], '라이트 링크'],
+  ['흰 글자 / sakura-50 (fill-primary)', palette.common['100'], palette.sakura['50'], '주요 버튼 — 굵은 라벨'],
+  ['sakura-50 / 흰 배경 (text-primary)', palette.sakura['50'], palette.common['100'], '강조·링크 — 긴 본문엔 쓰지 않음'],
   ['sakura-60 / 다크 배경 (text-primary)', palette.sakura['60'], '#0E1014', '다크 링크'],
   ['neutral-45 / 흰 배경 (text-assistive)', palette.neutral['45'], palette.common['100'], '캡션'],
   ['neutral-30 / 흰 배경 (text-alternative)', palette.neutral['30'], palette.common['100'], '보조 설명'],
@@ -123,7 +122,7 @@ export function ColorPage() {
         />
       </Section>
 
-      <Section title="대비 검증" description="주요 조합의 WCAG 2.1 대비율이에요. 브랜드 원색 위 흰 글자는 기준에 못 미쳐서 버튼에는 한 단계 진한 45를 써요.">
+      <Section title="대비 검증" description="주요 조합의 WCAG 2.1 대비율이에요. 채도를 지키려고 버튼·링크에도 원색을 그대로 써요. 원색 위 흰 글자(3.4:1)는 큰 텍스트·UI 기준(3:1)만 통과하니 라벨은 SemiBold 이상으로 써요.">
         <Table
           head={['조합', '미리보기', '대비', '등급', '용도']}
           rows={PAIRS.map(([label, fg, bg, use]) => {
@@ -147,20 +146,26 @@ export function ColorPage() {
 }
 
 /* ------------------------------------------------------------- Typography */
-const TYPE: [string, string, string, string, string][] = [
-  ['display1', '56 / 70', '40 / 52', 'Bold', '랜딩 히어로'],
-  ['display2', '40 / 52', '32 / 43', 'Bold', '섹션 히어로'],
-  ['title1', '32 / 44', '26 / 36', 'Bold', '페이지 제목'],
-  ['title2', '28 / 39', '24 / 34', 'Bold', ''],
-  ['title3', '24 / 34', '22 / 31', 'Bold', '모바일 화면 제목'],
-  ['heading1', '20 / 29', '19 / 28', 'SemiBold', '섹션 제목, 다이얼로그'],
-  ['heading2', '18 / 26', '17 / 25', 'SemiBold', '카드 제목'],
-  ['body1', '16 / 26', '16 / 25', 'Regular', '기본 본문'],
-  ['body2', '15 / 24', '15 / 23', 'Regular', '버튼, 보조 본문'],
-  ['label1', '14 / 20', '14 / 20', 'Medium', '라벨, 칩'],
-  ['label2', '13 / 18', '13 / 18', 'Medium', '헬퍼 텍스트'],
-  ['caption1', '12 / 16', '12 / 16', 'Regular', '캡션, 배지'],
-  ['caption2', '11 / 14', '11 / 14', 'Regular', '최소 크기'],
+const TYPE: [string, string, string, string, string, string][] = [
+  ['display1', '56', '40', 'tight 1.2', 'Bold', '랜딩 히어로'],
+  ['display2', '40', '32', 'tight 1.2', 'Bold', '섹션 히어로'],
+  ['title1', '32', '26', 'normal 1.4', 'Bold', '페이지 제목'],
+  ['title2', '28', '24', 'normal 1.4', 'Bold', ''],
+  ['title3', '24', '22', 'normal 1.4', 'Bold', '모바일 화면 제목'],
+  ['heading1', '20', '19', 'normal 1.4', 'SemiBold', '섹션 제목, 다이얼로그'],
+  ['heading2', '18', '17', 'normal 1.4', 'SemiBold', '카드 제목'],
+  ['body1', '16', '16', 'relaxed 1.6', 'Regular', '기본 본문'],
+  ['body2', '15', '15', 'relaxed 1.6', 'Regular', '버튼, 보조 본문'],
+  ['label1', '14', '14', 'normal 1.4', 'Medium', '라벨, 칩'],
+  ['label2', '13', '13', 'normal 1.4', 'Medium', '헬퍼 텍스트'],
+  ['caption1', '12', '12', 'normal 1.4', 'Regular', '캡션, 배지'],
+  ['caption2', '11', '11', 'normal 1.4', 'Regular', '최소 크기'],
+];
+
+const LEADING: [string, string, string][] = [
+  ['leading-tight', '1.2', 'display — 큰 글자, 한두 줄'],
+  ['leading-normal', '1.4', 'title · heading · label · caption — UI 텍스트'],
+  ['leading-relaxed', '1.6', 'body — 여러 줄 읽는 본문'],
 ];
 
 export function TypographyPage() {
@@ -180,7 +185,10 @@ export function TypographyPage() {
             </div>
           ))}
         </div>
-        <Table head={['토큰', 'Web (size/lh)', 'Mobile', 'Weight', '용도']} rows={TYPE.map((r) => r.map((c, i) => (i === 0 ? <InlineCode>{c}</InlineCode> : c)))} />
+        <Table head={['토큰', 'Web (px)', 'Mobile (px)', 'Line height', 'Weight', '용도']} rows={TYPE.map((r) => r.map((c, i) => (i === 0 ? <InlineCode>{c}</InlineCode> : c)))} />
+      </Section>
+      <Section title="Line height" description="행간은 글자 크기마다 따로 정하지 않고 비율 3단계 중 역할에 맞는 것을 골라요. 비율이라 글자 크기가 바뀌어도 그대로 따라가요.">
+        <Table head={['토큰', '비율', '용도']} rows={LEADING.map(([k, v, u]) => [<InlineCode>--kosa-{k}</InlineCode>, v, u])} />
       </Section>
       <Section title="사용">
         <Code>{`/* 클래스 */
@@ -282,11 +290,11 @@ export function ElevationPage() {
   return (
     <>
       <PageHeader group="Foundations" title="Elevation">
-        그림자는 "떠 있다"는 의미가 있을 때만 써요. 평평한 영역 구분은 배경색 대비(bg-subtle, bg-muted)로 해결해요.
+        그림자는 최소한만 써요. 카드·다이얼로그·시트는 배경색 대비(회색 배경 위 흰 면)와 딤으로 구분하고, 그림자는 화면 위에 떠서 움직이는 작은 요소에만 둬요.
       </PageHeader>
       <Section title="Level">
         <Preview>
-          {[1, 2, 3, 4].map((n) => (
+          {[1, 2].map((n) => (
             <div key={n} style={{ width: 132, height: 96, display: 'grid', placeItems: 'center', borderRadius: 'var(--kosa-radius-card)', background: 'var(--kosa-color-bg-elevated)', boxShadow: `var(--kosa-shadow-${n})` }}>
               <span className="kosa-label1">shadow-{n}</span>
             </div>
@@ -296,12 +304,10 @@ export function ElevationPage() {
           head={['토큰', '사용처']}
           rows={[
             ['shadow-1', 'Segmented 선택 면, 스위치 손잡이'],
-            ['shadow-2', 'elevated Card'],
-            ['shadow-3', 'Toast, 드롭다운, 호버된 카드'],
-            ['shadow-4', 'Dialog, BottomSheet'],
+            ['shadow-2', 'Toast, 플로팅 버튼, 드롭다운'],
           ].map(([k, v]) => [<InlineCode>--kosa-{k}</InlineCode>, v])}
         />
-        <Callout>다크 모드에서는 그림자가 잘 보이지 않아서, 그림자를 더 진하게 하고 면의 밝기(bg-elevated)로 높이를 함께 표현해요.</Callout>
+        <Callout>Card·Dialog·BottomSheet에는 그림자가 없어요. Dialog와 BottomSheet는 뒤의 딤이 면을 분리해 주고, 다크 모드에서는 면의 밝기(bg-elevated)로 높이를 표현해요.</Callout>
       </Section>
     </>
   );
@@ -336,16 +342,18 @@ export function LayoutPage() {
         <Table
           head={['토큰', 'Web', 'Mobile', '이유']}
           rows={[
-            ['control-lg', '48px', '52px', '하단 CTA는 엄지로 누르기 쉽게'],
-            ['control-md', '40px', '44px', 'iOS/Android 최소 터치 영역 44px'],
-            ['control-sm', '32px', '36px', ''],
+            ['control-xl', '60px', '60px', '화면 하단 고정 CTA'],
+            ['control-lg', '52px', '56px', '하단 CTA는 엄지로 누르기 쉽게'],
+            ['control-md', '44px', '48px', '웹도 44px로 넉넉하게, 모바일은 한 단계 더'],
+            ['control-sm', '36px', '40px', ''],
+            ['control-xs', '28px', '32px', ''],
             ['touch-min', '32px', '44px', 'Checkbox·Switch 등 행 높이 하한'],
             ['type-title1', '32px', '26px', '좁은 화면 줄바꿈 최소화'],
           ].map(([k, ...r]) => [<InlineCode>--kosa-{k}</InlineCode>, ...r])}
         />
         <Preview platform="mobile" style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
           <span className="kosa-label2" style={{ color: 'var(--kosa-color-text-assistive)' }}>
-            Mobile · control-lg 52px
+            Mobile · control-lg 56px
           </span>
           <Button size="lg" fullWidth>
             예약하기
@@ -353,7 +361,7 @@ export function LayoutPage() {
         </Preview>
         <Preview platform="desktop" style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 10, width: 375 }}>
           <span className="kosa-label2" style={{ color: 'var(--kosa-color-text-assistive)' }}>
-            Web · control-lg 48px
+            Web · control-lg 52px
           </span>
           <Button size="lg" fullWidth>
             예약하기

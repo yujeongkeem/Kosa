@@ -28,7 +28,6 @@
   padding: var(--kosa-space-8);
   border-radius: var(--kosa-radius-dialog);
   background: var(--kosa-color-bg-elevated);
-  box-shadow: var(--kosa-shadow-4);
   outline: none;
   opacity: 0;
   transform: scale(0.94);

@@ -8,8 +8,8 @@ export function Principles() {
       </PageHeader>
       <Section title="1. 읽히는 것이 먼저">
         <P>
-          브랜드 컬러 #FF4500은 흰 배경 위에서 대비가 3.4:1이라 본문 텍스트 기준(4.5:1)에 못 미쳐요. 그래서 브랜드 원색은 로고·일러스트·큰
-          그래픽에만 쓰고, 텍스트와 버튼에는 채도를 거의 그대로 유지한 채 명도만 낮춘 <InlineCode>sakura-45</InlineCode>(4.6:1)를 써요.
+          브랜드 컬러 #FF4500은 어둡게 눌러 쓰지 않고 원색 그대로 버튼·링크·포커스에 써요. 흰 배경 대비가 3.4:1이라 큰 텍스트·UI 기준(3:1)은
+          통과하지만 본문 기준(4.5:1)엔 못 미치니, 원색 위 라벨은 SemiBold 이상으로 쓰고 긴 본문은 중립 텍스트 색으로 써요.
         </P>
       </Section>
       <Section title="2. 경계는 선보다 면으로">
@@ -23,7 +23,7 @@ export function Principles() {
         <Table
           head={['계층', '예시', '누가 참조하나']}
           rows={[
-            ['Palette', <InlineCode>--kosa-sakura-45</InlineCode>, '시맨틱 토큰 파일만'],
+            ['Palette', <InlineCode>--kosa-sakura-50</InlineCode>, '시맨틱 토큰 파일만'],
             ['Semantic', <InlineCode>--kosa-color-fill-primary</InlineCode>, '컴포넌트, 화면'],
             ['Role', <InlineCode>--kosa-radius-control</InlineCode>, '컴포넌트'],
           ]}
@@ -31,7 +31,7 @@ export function Principles() {
       </Section>
       <Section title="4. 같은 이름, 플랫폼별 값">
         <P>
-          <InlineCode>--kosa-control-md</InlineCode>는 웹에서 40px, 모바일에서 44px이에요. 컴포넌트는 플랫폼을 몰라도 되고, 토큰이 플랫폼에
+          <InlineCode>--kosa-control-md</InlineCode>는 웹에서 44px, 모바일에서 48px이에요. 컴포넌트는 플랫폼을 몰라도 되고, 토큰이 플랫폼에
           맞는 값을 내려줘요. 터치 기기에서는 최소 터치 영역 44px을 보장해요.
         </P>
       </Section>

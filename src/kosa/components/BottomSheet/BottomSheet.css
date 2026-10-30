@@ -16,7 +16,6 @@
   padding-bottom: env(safe-area-inset-bottom);
   border-radius: var(--kosa-radius-sheet) var(--kosa-radius-sheet) 0 0;
   background: var(--kosa-color-bg-elevated);
-  box-shadow: var(--kosa-shadow-4);
   outline: none;
   transform: translateY(100%);
   transition: transform var(--kosa-duration-normal) var(--kosa-ease-exit);

@@ -44,7 +44,7 @@ export function ButtonPage() {
           <Button variant="danger">삭제</Button>
         </Preview>
       </Section>
-      <Section title="Size" description="높이는 플랫폼 토큰을 따라요. 같은 lg라도 웹은 48px, 모바일은 52px이에요.">
+      <Section title="Size" description="높이는 플랫폼 토큰을 따라요. 같은 lg라도 웹은 52px, 모바일은 56px이에요.">
         <Preview code={`<Button size="xl">xl</Button>  // 56 · 화면 하단 CTA\n<Button size="lg">lg</Button>  // 48 / 52\n<Button size="md">md</Button>  // 40 / 44\n<Button size="sm">sm</Button>  // 32 / 36\n<Button size="xs">xs</Button>  // 24 / 28`}>
           <Button size="xl">xl</Button>
           <Button size="lg">lg</Button>
@@ -415,23 +415,34 @@ export function CardPage() {
   return (
     <>
       <PageHeader group="Components" title="Card">
-        관련된 정보를 한 덩어리로 묶어요. 경계는 테두리 대신 배경 대비(filled)나 그림자(elevated)로 표현해요.
+        관련된 정보를 한 덩어리로 묶어요. 경계는 테두리·그림자 대신 배경 대비로 표현해요. filled는 흰 배경 위 회색 면, elevated는 회색 배경 위 흰 면이에요.
       </PageHeader>
       <Section title="Variant">
         <Preview style={{ alignItems: 'stretch' }}>
-          {(['filled', 'elevated'] as const).map((v) => (
-            <Card key={v} variant={v} style={{ width: 240 }}>
-              <Badge tone="primary" size="sm">
-                {v}
-              </Badge>
-              <p className="kosa-heading2" style={{ margin: '12px 0 4px', color: 'var(--kosa-color-text-strong)' }}>
-                이번 주 리포트
-              </p>
-              <p className="kosa-label1" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
-                운동 4회 · 목표 달성률 80%
-              </p>
-            </Card>
-          ))}
+          <Card variant="filled" style={{ width: 240 }}>
+            <Badge tone="primary" size="sm">
+              filled
+            </Badge>
+            <p className="kosa-heading2" style={{ margin: '12px 0 4px', color: 'var(--kosa-color-text-strong)' }}>
+              이번 주 리포트
+            </p>
+            <p className="kosa-label1" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
+              흰 배경 위의 회색 면
+            </p>
+          </Card>
+        </Preview>
+        <Preview padded={false} style={{ alignItems: 'stretch', justifyContent: 'center', width: '100%', padding: 32, background: 'var(--kosa-color-bg-muted)' }}>
+          <Card variant="elevated" style={{ width: 240 }}>
+            <Badge tone="primary" size="sm">
+              elevated
+            </Badge>
+            <p className="kosa-heading2" style={{ margin: '12px 0 4px', color: 'var(--kosa-color-text-strong)' }}>
+              이번 주 리포트
+            </p>
+            <p className="kosa-label1" style={{ margin: 0, color: 'var(--kosa-color-text-assistive)' }}>
+              회색 배경 위의 흰 면
+            </p>
+          </Card>
           <Card variant="elevated" interactive style={{ width: 240 }} onClick={() => undefined}>
             <Badge size="sm">interactive</Badge>
             <p className="kosa-heading2" style={{ margin: '12px 0 4px', color: 'var(--kosa-color-text-strong)' }}>

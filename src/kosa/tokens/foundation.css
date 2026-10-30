@@ -13,6 +13,11 @@
   --kosa-weight-semibold: 600;
   --kosa-weight-bold: 700;
 
+  /* Line height — 비율 3단계. 글자 크기와 상관없이 역할로 고른다 */
+  --kosa-leading-tight: 1.2; /* display — 큰 글자, 한두 줄 */
+  --kosa-leading-normal: 1.4; /* title·heading·label·caption — UI 텍스트 */
+  --kosa-leading-relaxed: 1.6; /* body — 여러 줄 읽는 본문 */
+
   /* Spacing — 4px 그리드, 2px 보조 */
   --kosa-space-0: 0;
   --kosa-space-1: 2px;
@@ -39,11 +44,9 @@
   --kosa-radius-full: 9999px;
   --kosa-radius-pill: var(--kosa-radius-full);
 
-  /* Elevation */
-  --kosa-shadow-1: 0 1px 2px rgb(16 18 24 / 0.06), 0 1px 1px rgb(16 18 24 / 0.04);
-  --kosa-shadow-2: 0 4px 12px rgb(16 18 24 / 0.08), 0 1px 3px rgb(16 18 24 / 0.06);
-  --kosa-shadow-3: 0 12px 32px rgb(16 18 24 / 0.12), 0 2px 6px rgb(16 18 24 / 0.06);
-  --kosa-shadow-4: 0 24px 64px rgb(16 18 24 / 0.18), 0 4px 12px rgb(16 18 24 / 0.08);
+  /* Elevation — 최소한만. 면 구분은 배경 대비로, 그림자는 떠 있는 작은 요소에만 */
+  --kosa-shadow-1: 0 1px 3px rgb(16 18 24 / 0.1);
+  --kosa-shadow-2: 0 4px 16px rgb(16 18 24 / 0.08);
 
   /* Motion */
   --kosa-duration-instant: 80ms;
@@ -66,10 +69,8 @@
 }
 
 [data-theme='dark'] {
-  --kosa-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
-  --kosa-shadow-2: 0 4px 12px rgb(0 0 0 / 0.45);
-  --kosa-shadow-3: 0 12px 32px rgb(0 0 0 / 0.5);
-  --kosa-shadow-4: 0 24px 64px rgb(0 0 0 / 0.6);
+  --kosa-shadow-1: 0 1px 3px rgb(0 0 0 / 0.4);
+  --kosa-shadow-2: 0 4px 16px rgb(0 0 0 / 0.4);
 }
 
 /* Shape — 역할 토큰. 컴포넌트는 이것만 쓴다. data-shape로 톤 교체 */
@@ -96,40 +97,40 @@
    ---------------------------------------------------------- */
 :root,
 [data-platform='desktop'] {
-  /* [size, line-height, letter-spacing] */
-  --kosa-type-display1: 56px/1.25 var(--kosa-font-sans);
+  /* font 단축 속성: size/leading family. 자간은 -ls */
+  --kosa-type-display1: 56px/var(--kosa-leading-tight) var(--kosa-font-sans);
   --kosa-type-display1-ls: -0.03em;
-  --kosa-type-display2: 40px/1.3 var(--kosa-font-sans);
+  --kosa-type-display2: 40px/var(--kosa-leading-tight) var(--kosa-font-sans);
   --kosa-type-display2-ls: -0.028em;
-  --kosa-type-title1: 32px/1.375 var(--kosa-font-sans);
+  --kosa-type-title1: 32px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-title1-ls: -0.025em;
-  --kosa-type-title2: 28px/1.4 var(--kosa-font-sans);
+  --kosa-type-title2: 28px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-title2-ls: -0.022em;
-  --kosa-type-title3: 24px/1.4 var(--kosa-font-sans);
+  --kosa-type-title3: 24px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-title3-ls: -0.02em;
-  --kosa-type-heading1: 20px/1.45 var(--kosa-font-sans);
+  --kosa-type-heading1: 20px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-heading1-ls: -0.015em;
-  --kosa-type-heading2: 18px/1.45 var(--kosa-font-sans);
+  --kosa-type-heading2: 18px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-heading2-ls: -0.01em;
-  --kosa-type-body1: 16px/1.6 var(--kosa-font-sans);
+  --kosa-type-body1: 16px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
   --kosa-type-body1-ls: -0.005em;
-  --kosa-type-body2: 15px/1.6 var(--kosa-font-sans);
+  --kosa-type-body2: 15px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
   --kosa-type-body2-ls: 0;
-  --kosa-type-label1: 14px/1.45 var(--kosa-font-sans);
+  --kosa-type-label1: 14px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-label1-ls: 0;
-  --kosa-type-label2: 13px/1.4 var(--kosa-font-sans);
+  --kosa-type-label2: 13px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-label2-ls: 0.005em;
-  --kosa-type-caption1: 12px/1.35 var(--kosa-font-sans);
+  --kosa-type-caption1: 12px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-caption1-ls: 0.01em;
-  --kosa-type-caption2: 11px/1.3 var(--kosa-font-sans);
+  --kosa-type-caption2: 11px/var(--kosa-leading-normal) var(--kosa-font-sans);
   --kosa-type-caption2-ls: 0.015em;
 
   /* Control height */
-  --kosa-control-xl: 56px;
-  --kosa-control-lg: 48px;
-  --kosa-control-md: 40px;
-  --kosa-control-sm: 32px;
-  --kosa-control-xs: 24px;
+  --kosa-control-xl: 60px;
+  --kosa-control-lg: 52px;
+  --kosa-control-md: 44px;
+  --kosa-control-sm: 36px;
+  --kosa-control-xs: 28px;
   --kosa-touch-min: 32px;
 
   /* Layout grid */
@@ -141,21 +142,21 @@
 
 /* mobile 값 — 미디어쿼리(실기기)와 data-platform(문서 미리보기) 양쪽에서 동일하게 */
 [data-platform='mobile'] {
-  --kosa-type-display1: 40px/1.3 var(--kosa-font-sans);
-  --kosa-type-display2: 32px/1.35 var(--kosa-font-sans);
-  --kosa-type-title1: 26px/1.4 var(--kosa-font-sans);
-  --kosa-type-title2: 24px/1.4 var(--kosa-font-sans);
-  --kosa-type-title3: 22px/1.4 var(--kosa-font-sans);
-  --kosa-type-heading1: 19px/1.45 var(--kosa-font-sans);
-  --kosa-type-heading2: 17px/1.45 var(--kosa-font-sans);
-  --kosa-type-body1: 16px/1.55 var(--kosa-font-sans);
-  --kosa-type-body2: 15px/1.55 var(--kosa-font-sans);
+  --kosa-type-display1: 40px/var(--kosa-leading-tight) var(--kosa-font-sans);
+  --kosa-type-display2: 32px/var(--kosa-leading-tight) var(--kosa-font-sans);
+  --kosa-type-title1: 26px/var(--kosa-leading-normal) var(--kosa-font-sans);
+  --kosa-type-title2: 24px/var(--kosa-leading-normal) var(--kosa-font-sans);
+  --kosa-type-title3: 22px/var(--kosa-leading-normal) var(--kosa-font-sans);
+  --kosa-type-heading1: 19px/var(--kosa-leading-normal) var(--kosa-font-sans);
+  --kosa-type-heading2: 17px/var(--kosa-leading-normal) var(--kosa-font-sans);
+  --kosa-type-body1: 16px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
+  --kosa-type-body2: 15px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
 
-  --kosa-control-xl: 56px;
-  --kosa-control-lg: 52px;
-  --kosa-control-md: 44px;
-  --kosa-control-sm: 36px;
-  --kosa-control-xs: 28px;
+  --kosa-control-xl: 60px;
+  --kosa-control-lg: 56px;
+  --kosa-control-md: 48px;
+  --kosa-control-sm: 40px;
+  --kosa-control-xs: 32px;
   --kosa-touch-min: 44px;
 
   --kosa-grid-columns: 4;
@@ -164,20 +165,21 @@
 }
 @media (max-width: 767px) {
   :root:not([data-platform='desktop']) {
-    --kosa-type-display1: 40px/1.3 var(--kosa-font-sans);
-    --kosa-type-display2: 32px/1.35 var(--kosa-font-sans);
-    --kosa-type-title1: 26px/1.4 var(--kosa-font-sans);
-    --kosa-type-title2: 24px/1.4 var(--kosa-font-sans);
-    --kosa-type-title3: 22px/1.4 var(--kosa-font-sans);
-    --kosa-type-heading1: 19px/1.45 var(--kosa-font-sans);
-    --kosa-type-heading2: 17px/1.45 var(--kosa-font-sans);
-    --kosa-type-body1: 16px/1.55 var(--kosa-font-sans);
-    --kosa-type-body2: 15px/1.55 var(--kosa-font-sans);
+    --kosa-type-display1: 40px/var(--kosa-leading-tight) var(--kosa-font-sans);
+    --kosa-type-display2: 32px/var(--kosa-leading-tight) var(--kosa-font-sans);
+    --kosa-type-title1: 26px/var(--kosa-leading-normal) var(--kosa-font-sans);
+    --kosa-type-title2: 24px/var(--kosa-leading-normal) var(--kosa-font-sans);
+    --kosa-type-title3: 22px/var(--kosa-leading-normal) var(--kosa-font-sans);
+    --kosa-type-heading1: 19px/var(--kosa-leading-normal) var(--kosa-font-sans);
+    --kosa-type-heading2: 17px/var(--kosa-leading-normal) var(--kosa-font-sans);
+    --kosa-type-body1: 16px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
+    --kosa-type-body2: 15px/var(--kosa-leading-relaxed) var(--kosa-font-sans);
 
-    --kosa-control-lg: 52px;
-    --kosa-control-md: 44px;
-    --kosa-control-sm: 36px;
-    --kosa-control-xs: 28px;
+    --kosa-control-xl: 60px;
+    --kosa-control-lg: 56px;
+    --kosa-control-md: 48px;
+    --kosa-control-sm: 40px;
+    --kosa-control-xs: 32px;
     --kosa-touch-min: 44px;
 
     --kosa-grid-columns: 4;

@@ -3,7 +3,7 @@ import { cx } from '../../utils/cx';
 import './Card.css';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  /** filled: 배경 대비로 구분 / elevated: 그림자로 띄움 */
+  /** filled: 회색 면 / elevated: 회색 배경 위의 흰 면. 둘 다 그림자 없이 배경 대비로 구분 */
   variant?: 'filled' | 'elevated' | 'plain';
   padding?: 'none' | 'sm' | 'md' | 'lg';
   /** 클릭 가능한 카드 — 눌림 피드백 + 키보드 접근 */

@@ -151,7 +151,7 @@ a {
 }
 .doc-title {
   margin: 0;
-  font: 44px/1.2 var(--kosa-font-sans);
+  font: 44px/var(--kosa-leading-tight) var(--kosa-font-sans);
   font-weight: var(--kosa-weight-bold);
   letter-spacing: -0.035em;
   color: var(--kosa-color-text-strong);
@@ -160,7 +160,7 @@ a {
   max-width: 640px;
   margin: var(--kosa-space-6) 0 0;
   font-size: 18px;
-  line-height: 1.65;
+  line-height: var(--kosa-leading-relaxed);
   color: var(--kosa-color-text-alternative);
 }
 .doc-section {
@@ -169,7 +169,7 @@ a {
 .doc-h2 {
   margin: 0 0 var(--kosa-space-5);
   font-size: 24px;
-  line-height: 1.4;
+  line-height: var(--kosa-leading-normal);
   font-weight: var(--kosa-weight-bold);
   letter-spacing: -0.025em;
   color: var(--kosa-color-text-strong);
@@ -184,14 +184,14 @@ a {
   max-width: 680px;
   margin: 0 0 var(--kosa-space-6);
   font-size: 15px;
-  line-height: 1.75;
+  line-height: var(--kosa-leading-relaxed);
   color: var(--kosa-color-text-alternative);
 }
 .doc-inline-code {
   padding: 2px 6px;
   border-radius: var(--kosa-radius-xs);
   background: var(--kosa-color-fill-neutral);
-  font: 13px/1.5 var(--kosa-font-mono);
+  font: 13px/var(--kosa-leading-relaxed) var(--kosa-font-mono);
   color: var(--kosa-color-text-normal);
 }
 
@@ -261,7 +261,7 @@ a {
   overflow-x: auto;
   background: #0E1014;
   color: #D9DEE7;
-  font: 13px/1.7 var(--kosa-font-mono);
+  font: 13px/var(--kosa-leading-relaxed) var(--kosa-font-mono);
   tab-size: 2;
 }
 .doc-section > .doc-code {
@@ -276,7 +276,7 @@ a {
   min-height: 200px;
   border-radius: 28px;
   background: var(--kosa-color-bg-base);
-  box-shadow: var(--kosa-shadow-3), 0 0 0 6px var(--kosa-color-fill-neutral);
+  box-shadow: 0 0 0 6px var(--kosa-color-fill-neutral);
   overflow: hidden;
 }
 
@@ -289,7 +289,7 @@ a {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  line-height: 1.55;
+  line-height: var(--kosa-leading-relaxed);
 }
 .doc-table th {
   padding: var(--kosa-space-4) var(--kosa-space-5);
@@ -309,7 +309,7 @@ a {
   vertical-align: top;
 }
 .doc-table__type {
-  font: 13px/1.55 var(--kosa-font-mono);
+  font: 13px/var(--kosa-leading-relaxed) var(--kosa-font-mono);
   color: var(--kosa-color-text-alternative);
   white-space: nowrap;
 }
@@ -342,7 +342,7 @@ a {
   padding: var(--kosa-space-5) 0 0;
   box-shadow: inset 0 3px 0 var(--kosa-color-positive);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: var(--kosa-leading-relaxed);
   color: var(--kosa-color-text-alternative);
 }
 .doc-guide[data-kind='dont'] .doc-guide__caption {
@@ -365,7 +365,7 @@ a {
   background: var(--kosa-color-fill-primary-subtle);
   color: var(--kosa-color-text-normal);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: var(--kosa-leading-relaxed);
 }
 .doc-callout > svg {
   flex: none;
@@ -389,7 +389,7 @@ a {
   padding: var(--kosa-space-3);
   border: 0;
   border-radius: var(--kosa-radius-xs);
-  font: 11px/1.35 var(--kosa-font-mono);
+  font: 11px/var(--kosa-leading-normal) var(--kosa-font-mono);
   text-align: start;
   cursor: pointer;
 }
@@ -423,15 +423,13 @@ a {
   margin-bottom: var(--kosa-space-12);
   padding: var(--kosa-space-12);
   border-radius: var(--kosa-radius-dialog);
-  background:
-    radial-gradient(120% 140% at 100% 0%, rgb(255 69 0 / 0.32), transparent 55%),
-    linear-gradient(160deg, #1A1D23 0%, #0E1014 100%);
+  background: #14171C;
   color: #fff;
   overflow: hidden;
 }
 .doc-hero__title {
   margin: 0;
-  font: 46px/1.2 var(--kosa-font-sans);
+  font: 46px/var(--kosa-leading-tight) var(--kosa-font-sans);
   font-weight: 800;
   letter-spacing: -0.04em;
 }
@@ -442,7 +440,7 @@ a {
 .doc-hero__lead {
   margin: var(--kosa-space-7) 0 var(--kosa-space-9);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: var(--kosa-leading-relaxed);
   color: #B3B7BF;
 }
 .doc-hero__actions {
@@ -485,7 +483,7 @@ a {
 }
 .doc-card-link span {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: var(--kosa-leading-relaxed);
   color: var(--kosa-color-text-assistive);
 }
 .doc-stat-row {
@@ -579,7 +577,6 @@ a {
     width: min(300px, 84vw);
     transform: translateX(-100%);
     transition: transform var(--kosa-duration-normal) var(--kosa-ease-standard);
-    box-shadow: var(--kosa-shadow-3);
   }
   .doc-nav--open {
     transform: none;

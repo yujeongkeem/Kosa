@@ -56,7 +56,7 @@ export function MobilePrototype() {
             </div>
           </Section>
           <Section title="확인 포인트">
-            <P>• 화면 전체가 data-platform="mobile" 토큰으로 렌더링돼요 (버튼 52px, 터치 영역 44px).</P>
+            <P>• 화면 전체가 data-platform="mobile" 토큰으로 렌더링돼요 (하단 버튼 56px, 터치 영역 44px).</P>
             <P>• + 버튼으로 기록을 추가하면 목록 맨 위에 쌓이고 토스트가 떠요.</P>
             <P>• 우측 상단에서 다크 모드·각진 형태로 바꿔도 화면이 그대로 따라와요.</P>
           </Section>
@@ -137,7 +137,11 @@ function PhoneApp() {
                     목표 8,000보
                   </p>
                 </div>
-                <div className="proto-ring" aria-label="오늘 목표 75% 달성">
+                <div className="proto-ring" role="img" aria-label="오늘 목표 75% 달성">
+                  <svg viewBox="0 0 64 64" width="64" height="64" fill="none" strokeWidth="6" aria-hidden="true">
+                    <circle className="proto-ring__track" cx="32" cy="32" r="27" />
+                    <circle className="proto-ring__value" cx="32" cy="32" r="27" strokeLinecap="round" pathLength={100} strokeDasharray="75 100" />
+                  </svg>
                   <span className="kosa-label1">75%</span>
                 </div>
               </div>

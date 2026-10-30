@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--kosa-color-bg-base);
+  background: var(--kosa-color-bg-muted);
 }
 .proto-appbar {
   display: flex;
@@ -31,7 +31,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(160deg, var(--kosa-sakura-60), var(--kosa-sakura-40));
+  background: var(--kosa-color-brand);
 }
 .proto-scroll {
   flex: 1;
@@ -43,15 +43,23 @@
   margin: var(--kosa-space-7) var(--kosa-space-7) var(--kosa-space-6);
 }
 .proto-ring {
+  position: relative;
   display: grid;
   place-items: center;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
-  background:
-    radial-gradient(closest-side, var(--kosa-color-bg-elevated) 76%, transparent 78%),
-    conic-gradient(var(--kosa-color-fill-primary) 75%, var(--kosa-color-fill-neutral) 0);
   color: var(--kosa-color-text-strong);
+}
+.proto-ring svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+.proto-ring__track {
+  stroke: var(--kosa-color-fill-neutral);
+}
+.proto-ring__value {
+  stroke: var(--kosa-color-fill-primary);
 }
 .proto-chips {
   display: flex;
@@ -75,7 +83,7 @@
   bottom: 84px;
   width: 56px;
   height: 56px;
-  box-shadow: var(--kosa-shadow-3);
+  box-shadow: var(--kosa-shadow-2);
 }
 .proto-tabbar {
   display: flex;
@@ -136,7 +144,6 @@
   min-height: 560px;
   border-radius: var(--kosa-radius-dialog);
   background: var(--kosa-color-bg-base);
-  box-shadow: var(--kosa-shadow-3);
   overflow: hidden;
 }
 .proto-web__side {
