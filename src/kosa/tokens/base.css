@@ -1,0 +1,60 @@
+/* Base — 최소 리셋 + 타이포 유틸 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  font: var(--kosa-type-body1);
+  letter-spacing: var(--kosa-type-body1-ls);
+  color: var(--kosa-color-text-normal);
+  background: var(--kosa-color-bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'ss06';
+  /* 한글은 어절 단위로 줄바꿈 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.kosa-display1 { font: var(--kosa-type-display1); letter-spacing: var(--kosa-type-display1-ls); font-weight: var(--kosa-weight-bold); }
+.kosa-display2 { font: var(--kosa-type-display2); letter-spacing: var(--kosa-type-display2-ls); font-weight: var(--kosa-weight-bold); }
+.kosa-title1 { font: var(--kosa-type-title1); letter-spacing: var(--kosa-type-title1-ls); font-weight: var(--kosa-weight-bold); }
+.kosa-title2 { font: var(--kosa-type-title2); letter-spacing: var(--kosa-type-title2-ls); font-weight: var(--kosa-weight-bold); }
+.kosa-title3 { font: var(--kosa-type-title3); letter-spacing: var(--kosa-type-title3-ls); font-weight: var(--kosa-weight-bold); }
+.kosa-heading1 { font: var(--kosa-type-heading1); letter-spacing: var(--kosa-type-heading1-ls); font-weight: var(--kosa-weight-semibold); }
+.kosa-heading2 { font: var(--kosa-type-heading2); letter-spacing: var(--kosa-type-heading2-ls); font-weight: var(--kosa-weight-semibold); }
+.kosa-body1 { font: var(--kosa-type-body1); letter-spacing: var(--kosa-type-body1-ls); }
+.kosa-body2 { font: var(--kosa-type-body2); letter-spacing: var(--kosa-type-body2-ls); }
+.kosa-label1 { font: var(--kosa-type-label1); letter-spacing: var(--kosa-type-label1-ls); font-weight: var(--kosa-weight-medium); }
+.kosa-label2 { font: var(--kosa-type-label2); letter-spacing: var(--kosa-type-label2-ls); font-weight: var(--kosa-weight-medium); }
+.kosa-caption1 { font: var(--kosa-type-caption1); letter-spacing: var(--kosa-type-caption1-ls); }
+.kosa-caption2 { font: var(--kosa-type-caption2); letter-spacing: var(--kosa-type-caption2-ls); }
+
+.kosa-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

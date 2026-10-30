@@ -1,0 +1,111 @@
+/* ==========================================================
+   Semantic color — 컴포넌트는 반드시 이 토큰만 참조한다.
+   프리미티브(--kosa-sakura-50 등)는 이 파일에서만 쓴다.
+   ========================================================== */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Brand — 고사쿠라 오렌지. 로고·일러스트·큰 그래픽 전용 (텍스트 대비 3.4:1) */
+  --kosa-color-brand: var(--kosa-sakura-50);
+
+  /* Background */
+  --kosa-color-bg-base: var(--kosa-common-100);
+  --kosa-color-bg-subtle: var(--kosa-neutral-99);
+  --kosa-color-bg-muted: var(--kosa-neutral-95);
+  --kosa-color-bg-elevated: var(--kosa-common-100);
+  --kosa-color-bg-inverse: var(--kosa-neutral-10);
+
+  /* Fill — 버튼·칩 등 인터랙티브 면 */
+  --kosa-color-fill-primary: var(--kosa-sakura-45); /* 흰 글자 4.6:1 */
+  --kosa-color-fill-primary-pressed: var(--kosa-sakura-40);
+  --kosa-color-fill-primary-subtle: var(--kosa-sakura-95);
+  --kosa-color-fill-neutral: var(--kosa-neutral-95);
+  --kosa-color-fill-neutral-pressed: var(--kosa-neutral-90);
+  --kosa-color-fill-strong: var(--kosa-neutral-10);
+  --kosa-color-fill-disabled: var(--kosa-neutral-95);
+  --kosa-color-fill-control-off: var(--kosa-neutral-80);
+
+  /* Text */
+  --kosa-color-text-strong: var(--kosa-neutral-5);
+  --kosa-color-text-normal: var(--kosa-neutral-10);
+  --kosa-color-text-alternative: var(--kosa-neutral-30);
+  --kosa-color-text-assistive: var(--kosa-neutral-45);
+  --kosa-color-text-disabled: var(--kosa-neutral-70);
+  --kosa-color-text-inverse: var(--kosa-common-100);
+  --kosa-color-text-on-primary: var(--kosa-common-100);
+  --kosa-color-text-primary: var(--kosa-sakura-45);
+
+  /* Line */
+  --kosa-color-line-subtle: var(--kosa-neutral-95);
+  --kosa-color-line-normal: var(--kosa-neutral-90);
+  --kosa-color-line-strong: var(--kosa-neutral-70);
+  --kosa-color-line-focus: var(--kosa-sakura-45);
+
+  /* Status */
+  --kosa-color-negative: var(--kosa-red-45);
+  --kosa-color-negative-subtle: var(--kosa-red-95);
+  --kosa-color-positive: var(--kosa-green-40);
+  --kosa-color-positive-subtle: var(--kosa-green-95);
+  --kosa-color-caution: var(--kosa-amber-40);
+  --kosa-color-caution-subtle: var(--kosa-amber-95);
+  --kosa-color-info: var(--kosa-blue-40);
+  --kosa-color-info-subtle: var(--kosa-blue-95);
+
+  /* State layer — 호버/프레스 시 면 위에 덮는 반투명 */
+  --kosa-color-state-hover: rgb(19 22 28 / 0.05);
+  --kosa-color-state-pressed: rgb(19 22 28 / 0.1);
+  --kosa-color-overlay-dim: rgb(10 12 16 / 0.48);
+
+  --kosa-color-skeleton: var(--kosa-neutral-95);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --kosa-color-brand: var(--kosa-sakura-50);
+
+  --kosa-color-bg-base: #0E1014;
+  --kosa-color-bg-subtle: var(--kosa-neutral-5);
+  --kosa-color-bg-muted: var(--kosa-neutral-10);
+  --kosa-color-bg-elevated: #1A1D23;
+  --kosa-color-bg-inverse: var(--kosa-neutral-95);
+
+  --kosa-color-fill-primary: var(--kosa-sakura-45);
+  --kosa-color-fill-primary-pressed: var(--kosa-sakura-50);
+  --kosa-color-fill-primary-subtle: rgb(255 69 0 / 0.14);
+  --kosa-color-fill-neutral: var(--kosa-neutral-10);
+  --kosa-color-fill-neutral-pressed: var(--kosa-neutral-20);
+  --kosa-color-fill-strong: var(--kosa-neutral-95);
+  --kosa-color-fill-disabled: var(--kosa-neutral-10);
+  --kosa-color-fill-control-off: var(--kosa-neutral-30);
+
+  --kosa-color-text-strong: var(--kosa-common-100);
+  --kosa-color-text-normal: var(--kosa-neutral-95);
+  --kosa-color-text-alternative: var(--kosa-neutral-70);
+  --kosa-color-text-assistive: var(--kosa-neutral-50);
+  --kosa-color-text-disabled: var(--kosa-neutral-30);
+  --kosa-color-text-inverse: var(--kosa-neutral-5);
+  --kosa-color-text-on-primary: var(--kosa-common-100);
+  --kosa-color-text-primary: var(--kosa-sakura-60);
+
+  --kosa-color-line-subtle: var(--kosa-neutral-10);
+  --kosa-color-line-normal: var(--kosa-neutral-20);
+  --kosa-color-line-strong: var(--kosa-neutral-40);
+  --kosa-color-line-focus: var(--kosa-sakura-60);
+
+  --kosa-color-negative: var(--kosa-red-60);
+  --kosa-color-negative-subtle: rgb(225 29 72 / 0.16);
+  --kosa-color-positive: var(--kosa-green-60);
+  --kosa-color-positive-subtle: rgb(0 168 107 / 0.16);
+  --kosa-color-caution: var(--kosa-amber-70);
+  --kosa-color-caution-subtle: rgb(245 158 11 / 0.16);
+  --kosa-color-info: var(--kosa-blue-60);
+  --kosa-color-info-subtle: rgb(37 99 235 / 0.18);
+
+  --kosa-color-state-hover: rgb(255 255 255 / 0.06);
+  --kosa-color-state-pressed: rgb(255 255 255 / 0.12);
+  --kosa-color-overlay-dim: rgb(0 0 0 / 0.64);
+
+  --kosa-color-skeleton: var(--kosa-neutral-10);
+}

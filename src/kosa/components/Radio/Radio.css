@@ -1,0 +1,28 @@
+.kosa-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.kosa-radio-group[data-direction='horizontal'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--kosa-space-8);
+}
+.kosa-radio .kosa-radio__dot {
+  border-radius: var(--kosa-radius-pill);
+}
+.kosa-radio .kosa-radio__dot::after {
+  content: '';
+  width: 40%;
+  height: 40%;
+  border-radius: inherit;
+  background: var(--kosa-color-text-on-primary);
+  transform: scale(0);
+  transition: transform var(--kosa-duration-normal) var(--kosa-ease-spring);
+}
+.kosa-radio .kosa-check__input:checked + .kosa-radio__dot::after {
+  transform: scale(1);
+}
+.kosa-radio .kosa-check__input:disabled:checked + .kosa-radio__dot::after {
+  background: var(--kosa-color-text-disabled);
+}

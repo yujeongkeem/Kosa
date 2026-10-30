@@ -1,0 +1,107 @@
+.kosa-sheet-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--kosa-z-modal);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.kosa-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100dvh - 56px);
+  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: var(--kosa-radius-sheet) var(--kosa-radius-sheet) 0 0;
+  background: var(--kosa-color-bg-elevated);
+  box-shadow: var(--kosa-shadow-4);
+  outline: none;
+  transform: translateY(100%);
+  transition: transform var(--kosa-duration-normal) var(--kosa-ease-exit);
+}
+[data-visible] > .kosa-sheet {
+  transform: none;
+  transition: transform var(--kosa-duration-slow) var(--kosa-ease-enter);
+}
+.kosa-sheet__handle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  height: 24px;
+  cursor: grab;
+  touch-action: none;
+}
+.kosa-sheet__handle > span {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--kosa-radius-pill);
+  background: var(--kosa-color-fill-control-off);
+}
+.kosa-sheet__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kosa-space-3);
+  padding: var(--kosa-space-4) var(--kosa-space-7) var(--kosa-space-5);
+}
+.kosa-sheet__handle + .kosa-sheet__header {
+  padding-top: var(--kosa-space-2);
+}
+.kosa-sheet__title {
+  margin: 0;
+  font: var(--kosa-type-heading1);
+  letter-spacing: var(--kosa-type-heading1-ls);
+  font-weight: var(--kosa-weight-bold);
+  color: var(--kosa-color-text-strong);
+}
+.kosa-sheet__desc {
+  margin: 0;
+  font: var(--kosa-type-body2);
+  color: var(--kosa-color-text-alternative);
+}
+.kosa-sheet__body {
+  flex: 1;
+  min-height: 0;
+  padding: 0 var(--kosa-space-7) var(--kosa-space-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.kosa-sheet__actions {
+  display: flex;
+  gap: var(--kosa-space-4);
+  padding: var(--kosa-space-5) var(--kosa-space-7) var(--kosa-space-7);
+}
+.kosa-sheet__actions > * {
+  flex: 1;
+}
+
+/* 데스크톱 변형: 중앙 패널 */
+@media (min-width: 768px) {
+  :root:not([data-platform='mobile']) .kosa-sheet-root {
+    align-items: center;
+    padding: var(--kosa-space-8);
+  }
+  :root:not([data-platform='mobile']) .kosa-sheet {
+    max-width: 440px;
+    border-radius: var(--kosa-radius-dialog);
+    transform: scale(0.94);
+    opacity: 0;
+    transition:
+      transform var(--kosa-duration-fast) var(--kosa-ease-exit),
+      opacity var(--kosa-duration-fast) var(--kosa-ease-exit);
+  }
+  :root:not([data-platform='mobile']) [data-visible] > .kosa-sheet {
+    transform: none;
+    opacity: 1;
+    transition:
+      transform var(--kosa-duration-slow) var(--kosa-ease-spring),
+      opacity var(--kosa-duration-normal) var(--kosa-ease-enter);
+  }
+  :root:not([data-platform='mobile']) .kosa-sheet__handle {
+    display: none;
+  }
+  :root:not([data-platform='mobile']) .kosa-sheet__header {
+    padding-top: var(--kosa-space-8);
+  }
+}

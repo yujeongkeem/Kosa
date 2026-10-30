@@ -1,0 +1,83 @@
+.kosa-tabs {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.kosa-tabs::-webkit-scrollbar {
+  display: none;
+}
+.kosa-tabs__tab {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  border: 0;
+  background: transparent;
+  color: var(--kosa-color-text-assistive);
+  font: var(--kosa-type-body2);
+  font-weight: var(--kosa-weight-semibold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+.kosa-tabs__tab[aria-selected='true'] {
+  color: var(--kosa-color-text-strong);
+}
+.kosa-tabs__tab:disabled {
+  color: var(--kosa-color-text-disabled);
+  cursor: not-allowed;
+}
+.kosa-tabs__tab:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--kosa-color-line-focus);
+  border-radius: var(--kosa-radius-xs);
+}
+.kosa-tabs__indicator {
+  position: absolute;
+  left: 0;
+  transition:
+    transform var(--kosa-duration-normal) var(--kosa-ease-standard),
+    width var(--kosa-duration-normal) var(--kosa-ease-standard);
+}
+
+/* line — 하단 구분선은 레이아웃 경계라서 허용 */
+.kosa-tabs[data-variant='line'] {
+  gap: var(--kosa-space-7);
+  box-shadow: inset 0 -1px 0 var(--kosa-color-line-normal);
+}
+.kosa-tabs[data-variant='line'] .kosa-tabs__tab {
+  height: var(--kosa-control-lg);
+  padding: 0 var(--kosa-space-1);
+}
+.kosa-tabs[data-variant='line'] .kosa-tabs__indicator {
+  bottom: 0;
+  height: 2px;
+  background: var(--kosa-color-text-strong);
+}
+.kosa-tabs--fill[data-variant='line'] {
+  gap: 0;
+}
+.kosa-tabs--fill .kosa-tabs__tab {
+  flex: 1;
+}
+
+/* segmented — 배경 위에 떠 있는 선택 면 */
+.kosa-tabs[data-variant='segmented'] {
+  padding: 3px;
+  border-radius: var(--kosa-radius-control);
+  background: var(--kosa-color-fill-neutral);
+}
+.kosa-tabs[data-variant='segmented'] .kosa-tabs__tab {
+  flex: 1;
+  height: calc(var(--kosa-control-md) - 6px);
+  padding: 0 var(--kosa-space-6);
+  font: var(--kosa-type-label1);
+  font-weight: var(--kosa-weight-semibold);
+}
+.kosa-tabs[data-variant='segmented'] .kosa-tabs__indicator {
+  top: 3px;
+  bottom: 3px;
+  border-radius: max(0px, calc(var(--kosa-radius-control) - 3px));
+  background: var(--kosa-color-bg-elevated);
+  box-shadow: var(--kosa-shadow-1);
+}

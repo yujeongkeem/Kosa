@@ -1,0 +1,65 @@
+.kosa-icon-button {
+  --_size: var(--kosa-control-md);
+  --_icon: 22px;
+  --_bg: transparent;
+  --_fg: var(--kosa-color-text-normal);
+
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--_size);
+  height: var(--_size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--kosa-radius-pill);
+  background: var(--_bg);
+  color: var(--_fg);
+  cursor: pointer;
+  transition: transform var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+.kosa-icon-button > svg {
+  width: var(--_icon);
+  height: var(--_icon);
+}
+.kosa-icon-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: background-color var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+@media (hover: hover) {
+  .kosa-icon-button:hover:not(:disabled)::after {
+    background: var(--kosa-color-state-hover);
+  }
+}
+.kosa-icon-button:active:not(:disabled) {
+  transform: scale(0.92);
+}
+.kosa-icon-button:active:not(:disabled)::after {
+  background: var(--kosa-color-state-pressed);
+}
+.kosa-icon-button:focus-visible {
+  outline: none;
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-icon-button:disabled {
+  --_fg: var(--kosa-color-text-disabled);
+  cursor: not-allowed;
+}
+.kosa-icon-button[data-variant='filled'] {
+  --_bg: var(--kosa-color-fill-neutral);
+}
+.kosa-icon-button[data-variant='primary'] {
+  --_bg: var(--kosa-color-fill-primary);
+  --_fg: var(--kosa-color-text-on-primary);
+}
+.kosa-icon-button[data-size='lg'] {
+  --_size: var(--kosa-control-lg);
+  --_icon: 24px;
+}
+.kosa-icon-button[data-size='sm'] {
+  --_size: var(--kosa-control-sm);
+  --_icon: 18px;
+}

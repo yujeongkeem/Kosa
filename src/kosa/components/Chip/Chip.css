@@ -1,0 +1,59 @@
+.kosa-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kosa-space-2);
+  flex: none;
+  height: var(--kosa-control-sm);
+  padding: 0 var(--kosa-space-5);
+  border: 0;
+  border-radius: var(--kosa-radius-pill);
+  background: var(--kosa-color-fill-neutral);
+  color: var(--kosa-color-text-alternative);
+  font: var(--kosa-type-label1);
+  font-weight: var(--kosa-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--kosa-duration-fast) var(--kosa-ease-standard),
+    color var(--kosa-duration-fast) var(--kosa-ease-standard),
+    transform var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+.kosa-chip[data-size='sm'] {
+  height: var(--kosa-control-xs);
+  padding: 0 var(--kosa-space-4);
+  font: var(--kosa-type-label2);
+  font-weight: var(--kosa-weight-medium);
+}
+@media (hover: hover) {
+  .kosa-chip:hover:not(:disabled) {
+    background: var(--kosa-color-fill-neutral-pressed);
+  }
+}
+.kosa-chip:active:not(:disabled) {
+  transform: scale(0.96);
+}
+.kosa-chip[data-selected] {
+  background: var(--kosa-color-fill-strong);
+  color: var(--kosa-color-text-inverse);
+  font-weight: var(--kosa-weight-semibold);
+}
+.kosa-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-chip:disabled {
+  color: var(--kosa-color-text-disabled);
+  cursor: not-allowed;
+}
+.kosa-chip__icon {
+  display: inline-flex;
+  margin-inline-start: -2px;
+}
+.kosa-chip__icon > svg {
+  width: 16px;
+  height: 16px;
+}
+.kosa-chip__caret {
+  margin-inline-end: -4px;
+}

@@ -1,0 +1,54 @@
+.kosa-badge {
+  --_bg: var(--kosa-color-fill-neutral);
+  --_fg: var(--kosa-color-text-alternative);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kosa-space-1);
+  height: 24px;
+  padding: 0 var(--kosa-space-4);
+  border-radius: var(--kosa-radius-xs);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--kosa-type-caption1);
+  font-weight: var(--kosa-weight-semibold);
+  white-space: nowrap;
+}
+.kosa-badge[data-size='sm'] {
+  height: 20px;
+  padding: 0 var(--kosa-space-3);
+  font: var(--kosa-type-caption2);
+  font-weight: var(--kosa-weight-semibold);
+}
+.kosa-badge[data-tone='primary'] { --_bg: var(--kosa-color-fill-primary-subtle); --_fg: var(--kosa-color-text-primary); }
+.kosa-badge[data-tone='positive'] { --_bg: var(--kosa-color-positive-subtle); --_fg: var(--kosa-color-positive); }
+.kosa-badge[data-tone='negative'] { --_bg: var(--kosa-color-negative-subtle); --_fg: var(--kosa-color-negative); }
+.kosa-badge[data-tone='caution'] { --_bg: var(--kosa-color-caution-subtle); --_fg: var(--kosa-color-caution); }
+.kosa-badge[data-tone='info'] { --_bg: var(--kosa-color-info-subtle); --_fg: var(--kosa-color-info); }
+
+.kosa-badge[data-variant='solid'] { --_fg: var(--kosa-common-100); }
+.kosa-badge[data-variant='solid'][data-tone='neutral'] { --_bg: var(--kosa-color-fill-strong); --_fg: var(--kosa-color-text-inverse); }
+.kosa-badge[data-variant='solid'][data-tone='primary'] { --_bg: var(--kosa-color-fill-primary); }
+.kosa-badge[data-variant='solid'][data-tone='positive'] { --_bg: var(--kosa-green-40); }
+.kosa-badge[data-variant='solid'][data-tone='negative'] { --_bg: var(--kosa-red-45); }
+.kosa-badge[data-variant='solid'][data-tone='caution'] { --_bg: var(--kosa-amber-40); }
+.kosa-badge[data-variant='solid'][data-tone='info'] { --_bg: var(--kosa-blue-40); }
+
+.kosa-count-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--kosa-radius-pill);
+  background: var(--kosa-color-brand);
+  color: var(--kosa-common-100);
+  font: var(--kosa-type-caption2);
+  font-weight: var(--kosa-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+.kosa-count-badge--dot {
+  min-width: 8px;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+}

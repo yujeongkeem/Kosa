@@ -1,0 +1,12 @@
+.kosa-spinner {
+  display: inline-flex;
+  flex: none;
+}
+.kosa-spinner svg {
+  animation: kosa-spin 0.8s linear infinite;
+}
+@keyframes kosa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

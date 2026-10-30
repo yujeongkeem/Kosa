@@ -1,0 +1,79 @@
+.kosa-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--kosa-color-overlay-dim);
+  opacity: 0;
+  transition: opacity var(--kosa-duration-normal) var(--kosa-ease-standard);
+}
+[data-visible] > .kosa-overlay {
+  opacity: 1;
+}
+
+.kosa-dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--kosa-z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--kosa-space-8);
+}
+.kosa-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kosa-space-8);
+  width: 100%;
+  max-width: 360px;
+  max-height: calc(100dvh - 48px);
+  padding: var(--kosa-space-8);
+  border-radius: var(--kosa-radius-dialog);
+  background: var(--kosa-color-bg-elevated);
+  box-shadow: var(--kosa-shadow-4);
+  outline: none;
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity var(--kosa-duration-fast) var(--kosa-ease-exit),
+    transform var(--kosa-duration-fast) var(--kosa-ease-exit);
+}
+.kosa-dialog[data-size='md'] {
+  max-width: 480px;
+}
+[data-visible] > .kosa-dialog {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--kosa-duration-normal) var(--kosa-ease-enter),
+    transform var(--kosa-duration-slow) var(--kosa-ease-spring);
+}
+.kosa-dialog__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kosa-space-4);
+}
+.kosa-dialog__title {
+  margin: 0;
+  font: var(--kosa-type-heading1);
+  letter-spacing: var(--kosa-type-heading1-ls);
+  font-weight: var(--kosa-weight-bold);
+  color: var(--kosa-color-text-strong);
+}
+.kosa-dialog__desc {
+  margin: 0;
+  font: var(--kosa-type-body2);
+  color: var(--kosa-color-text-alternative);
+  white-space: pre-line;
+}
+.kosa-dialog__body {
+  overflow-y: auto;
+}
+.kosa-dialog__actions {
+  display: flex;
+  gap: var(--kosa-space-4);
+}
+.kosa-dialog__actions[data-layout='horizontal'] > * {
+  flex: 1;
+}
+.kosa-dialog__actions[data-layout='vertical'] {
+  flex-direction: column;
+}

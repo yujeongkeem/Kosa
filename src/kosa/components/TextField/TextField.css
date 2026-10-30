@@ -1,0 +1,92 @@
+.kosa-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kosa-space-3);
+  min-width: 0;
+}
+.kosa-field__label {
+  font: var(--kosa-type-label1);
+  font-weight: var(--kosa-weight-semibold);
+  color: var(--kosa-color-text-alternative);
+}
+/* 경계는 배경 대비로. 포커스/에러 때만 inset 링으로 강조 */
+.kosa-field__control {
+  display: flex;
+  align-items: center;
+  gap: var(--kosa-space-4);
+  height: var(--kosa-control-lg);
+  padding: 0 var(--kosa-space-6);
+  border-radius: var(--kosa-radius-control);
+  background: var(--kosa-color-fill-neutral);
+  color: var(--kosa-color-text-assistive);
+  transition:
+    box-shadow var(--kosa-duration-fast) var(--kosa-ease-standard),
+    background-color var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+.kosa-field[data-size='md'] .kosa-field__control {
+  height: var(--kosa-control-md);
+  padding: 0 var(--kosa-space-5);
+}
+.kosa-field__control:focus-within {
+  background: var(--kosa-color-bg-base);
+  box-shadow: inset 0 0 0 1.5px var(--kosa-color-line-focus);
+}
+.kosa-field[data-invalid] .kosa-field__control {
+  box-shadow: inset 0 0 0 1.5px var(--kosa-color-negative);
+}
+.kosa-field[data-disabled] .kosa-field__control {
+  background: var(--kosa-color-fill-disabled);
+  color: var(--kosa-color-text-disabled);
+}
+.kosa-field__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  outline: none;
+  color: var(--kosa-color-text-strong);
+  font: var(--kosa-type-body1);
+  letter-spacing: var(--kosa-type-body1-ls);
+}
+.kosa-field__input::placeholder {
+  color: var(--kosa-color-text-assistive);
+}
+.kosa-field__input:disabled {
+  color: var(--kosa-color-text-disabled);
+  cursor: not-allowed;
+}
+.kosa-field__slot {
+  display: inline-flex;
+  flex: none;
+}
+.kosa-field__action {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin-inline-end: -6px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--kosa-radius-pill);
+  background: transparent;
+  color: var(--kosa-color-text-assistive);
+  cursor: pointer;
+}
+.kosa-field__action:focus-visible {
+  outline: none;
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-field__message {
+  display: flex;
+  align-items: center;
+  gap: var(--kosa-space-2);
+  margin: 0;
+  font: var(--kosa-type-label2);
+  color: var(--kosa-color-text-assistive);
+}
+.kosa-field[data-invalid] .kosa-field__message {
+  color: var(--kosa-color-negative);
+}

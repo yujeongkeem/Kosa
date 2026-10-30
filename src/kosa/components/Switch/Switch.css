@@ -1,0 +1,72 @@
+.kosa-switch {
+  --_w: 50px;
+  --_h: 30px;
+  --_pad: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kosa-space-5);
+  min-height: var(--kosa-touch-min);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.kosa-switch[data-size='sm'] {
+  --_w: 38px;
+  --_h: 22px;
+  --_pad: 2px;
+}
+.kosa-switch[data-label-position='start'] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.kosa-switch[data-disabled] {
+  cursor: not-allowed;
+}
+.kosa-switch__track-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+.kosa-switch__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.kosa-switch__track {
+  display: inline-flex;
+  width: var(--_w);
+  height: var(--_h);
+  padding: var(--_pad);
+  border-radius: var(--kosa-radius-pill);
+  background: var(--kosa-color-fill-control-off);
+  transition: background-color var(--kosa-duration-normal) var(--kosa-ease-standard);
+}
+.kosa-switch__thumb {
+  width: calc(var(--_h) - var(--_pad) * 2);
+  height: calc(var(--_h) - var(--_pad) * 2);
+  border-radius: var(--kosa-radius-pill);
+  background: var(--kosa-common-100);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.18);
+  transition: transform var(--kosa-duration-normal) var(--kosa-ease-spring);
+}
+.kosa-switch__input:checked + .kosa-switch__track {
+  background: var(--kosa-color-fill-primary);
+}
+.kosa-switch__input:checked + .kosa-switch__track .kosa-switch__thumb {
+  transform: translateX(calc(var(--_w) - var(--_h)));
+}
+.kosa-switch__input:focus-visible + .kosa-switch__track {
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-switch__input:disabled + .kosa-switch__track {
+  opacity: 0.4;
+}
+.kosa-switch__label {
+  font: var(--kosa-type-body2);
+  color: var(--kosa-color-text-normal);
+}
+.kosa-switch[data-disabled] .kosa-switch__label {
+  color: var(--kosa-color-text-disabled);
+}

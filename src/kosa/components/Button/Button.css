@@ -1,0 +1,136 @@
+.kosa-button {
+  --_bg: var(--kosa-color-fill-primary);
+  --_fg: var(--kosa-color-text-on-primary);
+  --_h: var(--kosa-control-md);
+  --_px: var(--kosa-space-6);
+  --_gap: var(--kosa-space-3);
+  --_radius: var(--kosa-radius-control);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_gap);
+  min-width: var(--_h);
+  height: var(--_h);
+  padding: 0 var(--_px);
+  border: 0;
+  border-radius: var(--_radius);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--kosa-type-body2);
+  font-weight: var(--kosa-weight-semibold);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  isolation: isolate;
+  transition:
+    transform var(--kosa-duration-fast) var(--kosa-ease-standard),
+    background-color var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+/* 상태 레이어: 배경색을 직접 바꾸지 않고 위에 덮는다 → 모든 variant 공통 */
+.kosa-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  transition: background-color var(--kosa-duration-fast) var(--kosa-ease-standard);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .kosa-button:hover:not(:disabled)::after {
+    background: var(--kosa-color-state-hover);
+  }
+}
+.kosa-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.kosa-button:active:not(:disabled)::after {
+  background: var(--kosa-color-state-pressed);
+}
+.kosa-button:focus-visible {
+  outline: none;
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-button:disabled {
+  cursor: not-allowed;
+}
+.kosa-button:disabled:not(.kosa-button--loading) {
+  --_bg: var(--kosa-color-fill-disabled);
+  --_fg: var(--kosa-color-text-disabled);
+}
+
+/* Variant */
+.kosa-button[data-variant='secondary'] {
+  --_bg: var(--kosa-color-fill-primary-subtle);
+  --_fg: var(--kosa-color-text-primary);
+}
+.kosa-button[data-variant='tertiary'] {
+  --_bg: var(--kosa-color-fill-neutral);
+  --_fg: var(--kosa-color-text-normal);
+}
+.kosa-button[data-variant='ghost'] {
+  --_bg: transparent;
+  --_fg: var(--kosa-color-text-alternative);
+}
+.kosa-button[data-variant='ghost']:disabled:not(.kosa-button--loading) {
+  --_bg: transparent;
+}
+.kosa-button[data-variant='danger'] {
+  --_bg: var(--kosa-color-negative);
+  --_fg: var(--kosa-common-100);
+}
+
+/* Size */
+.kosa-button[data-size='xl'] {
+  --_h: var(--kosa-control-xl);
+  --_px: var(--kosa-space-8);
+  font: var(--kosa-type-body1);
+  font-weight: var(--kosa-weight-semibold);
+  border-radius: var(--kosa-radius-card);
+}
+.kosa-button[data-size='lg'] {
+  --_h: var(--kosa-control-lg);
+  --_px: var(--kosa-space-7);
+  font: var(--kosa-type-body1);
+  font-weight: var(--kosa-weight-semibold);
+}
+.kosa-button[data-size='sm'] {
+  --_h: var(--kosa-control-sm);
+  --_px: var(--kosa-space-5);
+  --_gap: var(--kosa-space-2);
+  --_radius: var(--kosa-radius-control-sm);
+  font: var(--kosa-type-label1);
+  font-weight: var(--kosa-weight-semibold);
+}
+.kosa-button[data-size='xs'] {
+  --_h: var(--kosa-control-xs);
+  --_px: var(--kosa-space-4);
+  --_gap: var(--kosa-space-1);
+  --_radius: var(--kosa-radius-control-sm);
+  font: var(--kosa-type-label2);
+  font-weight: var(--kosa-weight-semibold);
+}
+
+.kosa-button--full {
+  display: flex;
+  width: 100%;
+}
+.kosa-button__icon {
+  display: inline-flex;
+  margin-inline: -2px;
+}
+.kosa-button__icon > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+.kosa-button--loading .kosa-button__label,
+.kosa-button--loading .kosa-button__icon {
+  visibility: hidden;
+}
+.kosa-button__spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}

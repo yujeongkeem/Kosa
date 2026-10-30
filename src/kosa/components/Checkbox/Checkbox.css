@@ -1,0 +1,87 @@
+/* Checkbox · Radio 공용 레이아웃 (kosa-check) */
+.kosa-check {
+  --_box: 22px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--kosa-space-4);
+  min-height: var(--kosa-touch-min);
+  padding-block: calc((var(--kosa-touch-min) - var(--_box)) / 2 - 1px);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.kosa-check[data-size='sm'] {
+  --_box: 18px;
+}
+.kosa-check[data-disabled] {
+  cursor: not-allowed;
+}
+.kosa-check__box-wrap {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  width: var(--_box);
+  height: var(--_box);
+  margin-top: 1px;
+}
+.kosa-check__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.kosa-check__box {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--kosa-radius-xs);
+  background: var(--kosa-color-bg-base);
+  box-shadow: inset 0 0 0 1.5px var(--kosa-color-line-strong);
+  color: transparent;
+  transition:
+    background-color var(--kosa-duration-fast) var(--kosa-ease-standard),
+    box-shadow var(--kosa-duration-fast) var(--kosa-ease-standard);
+}
+.kosa-check__box > svg {
+  transform: scale(0.6);
+  transition: transform var(--kosa-duration-normal) var(--kosa-ease-spring);
+}
+.kosa-check__input:checked + .kosa-check__box,
+.kosa-check__input:indeterminate + .kosa-check__box {
+  background: var(--kosa-color-fill-primary);
+  box-shadow: none;
+  color: var(--kosa-color-text-on-primary);
+}
+.kosa-check__input:checked + .kosa-check__box > svg,
+.kosa-check__input:indeterminate + .kosa-check__box > svg {
+  transform: scale(1);
+}
+.kosa-check__input:focus-visible + .kosa-check__box {
+  box-shadow: var(--kosa-focus-ring);
+}
+.kosa-check__input:disabled + .kosa-check__box {
+  background: var(--kosa-color-fill-disabled);
+  box-shadow: inset 0 0 0 1.5px var(--kosa-color-line-normal);
+}
+.kosa-check__input:disabled:checked + .kosa-check__box {
+  color: var(--kosa-color-text-disabled);
+  box-shadow: none;
+}
+.kosa-check__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kosa-space-1);
+}
+.kosa-check__label {
+  font: var(--kosa-type-body2);
+  color: var(--kosa-color-text-normal);
+}
+.kosa-check__desc {
+  font: var(--kosa-type-label2);
+  color: var(--kosa-color-text-assistive);
+}
+.kosa-check[data-disabled] .kosa-check__label {
+  color: var(--kosa-color-text-disabled);
+}
